@@ -19,19 +19,19 @@ class Player {
     board.appendChild(this.playerElem);
     this.playerElem.style.width = this.playerWidth + "vw";
     this.playerElem.style.height = this.playerHeight + "vh";
-    this.playerElem.style.bottom = this.position.y + "vw";
-    this.playerElem.style.left = this.position.x + "vh";
+    this.playerElem.style.bottom = this.position.y + "vh";
+    this.playerElem.style.left = this.position.x + "vw";
   }
   moveLeft() {
-    this.position.x -= 10;
+    this.position.x -= 1;
     this.playerElem.style.left = this.position.x + "vw";
   }
   moveRight() {
-    this.position.x += 10;
+    this.position.x += 1;
     this.playerElem.style.left = this.position.x + "vw";
   }
   jump() {
-    this.position.y += 20;
+    this.position.y += 15;
     this.playerElem.style.bottom = this.position.y + "vh";
   }
   fall() {
@@ -39,23 +39,3 @@ class Player {
     this.playerElem.style.bottom = this.position.y + "vh";
   }
 }
-const newPlayer = new Player();
-
-const FALL_INTERVAL = setInterval(() => {
-  newPlayer.fall();
-  if (newPlayer.position.y <= 2) {
-    newPlayer.position.y = 1;
-  }
-}, 30);
-addEventListener("load", () => {
-  newPlayer.createPlayerElem();
-});
-addEventListener("keydown", (e) => {
-  if (e.key === "a") {
-    newPlayer.moveLeft();
-  } else if (e.key === "d") {
-    newPlayer.moveRight();
-  } else if (e.key === " ") {
-    newPlayer.jump();
-  }
-});
