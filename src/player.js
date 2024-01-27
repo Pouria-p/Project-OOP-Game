@@ -2,15 +2,15 @@ class Player {
   constructor() {
     this.position = {
       x: 30,
-      y: 0,
+      y: 1,
     };
     this.velocity = {
       x: 0,
       y: 1,
     };
-    this.playerWidth = 10;
-    this.playerHeight = 10;
-    this.playerElem;
+    this.playerWidth = 5;
+    this.playerHeight = 5;
+    this.playerElem = null;
   }
   createPlayerElem() {
     this.playerElem = document.createElement("div");
@@ -44,7 +44,7 @@ const newPlayer = new Player();
 const FALL_INTERVAL = setInterval(() => {
   newPlayer.fall();
   if (newPlayer.position.y <= 2) {
-    newPlayer.position.y = 0;
+    newPlayer.position.y = 1;
   }
 }, 30);
 addEventListener("load", () => {

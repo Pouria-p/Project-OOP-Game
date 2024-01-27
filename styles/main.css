@@ -11,4 +11,14 @@ body {
   height: 80vh;
   width: 60vw;
   background-color: magenta;
+  position: relative;
+  overflow: hidden;
+}
+#player {
+  background-color: blue;
+  position: absolute;
+}
+.platform {
+  background-color: green;
+  position: absolute;
 }
