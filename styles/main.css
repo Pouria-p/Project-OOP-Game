@@ -10,12 +10,13 @@ body {
   margin: auto;
   height: 80vh;
   width: 60vw;
-  background-color: magenta;
+  background-color: black;
   position: relative;
   overflow: hidden;
+  border: 2px solid red;
 }
 #player {
-  background-color: blue;
+  background-color: white;
   position: absolute;
 }
 .platform {

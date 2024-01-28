@@ -1,3 +1,4 @@
+const board = document.querySelector("#board");
 class Player {
   constructor() {
     this.position = {
@@ -8,14 +9,15 @@ class Player {
       x: 0,
       y: 1,
     };
-    this.playerWidth = 5;
-    this.playerHeight = 5;
+    this.playerWidth = 1;
+    this.playerHeight = 4;
     this.playerElem = null;
+    this.createPlayerElem();
   }
   createPlayerElem() {
     this.playerElem = document.createElement("div");
     this.playerElem.setAttribute("id", "player");
-    const board = document.querySelector("#board");
+
     board.appendChild(this.playerElem);
     this.playerElem.style.width = this.playerWidth + "vw";
     this.playerElem.style.height = this.playerHeight + "vh";
@@ -23,15 +25,15 @@ class Player {
     this.playerElem.style.left = this.position.x + "vw";
   }
   moveLeft() {
-    this.position.x -= 1;
+    this.position.x -= 5;
     this.playerElem.style.left = this.position.x + "vw";
   }
   moveRight() {
-    this.position.x += 1;
+    this.position.x += 5;
     this.playerElem.style.left = this.position.x + "vw";
   }
   jump() {
-    this.position.y += 15;
+    this.position.y += 20;
     this.playerElem.style.bottom = this.position.y + "vh";
   }
   fall() {

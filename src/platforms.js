@@ -4,14 +4,14 @@ class Platform {
       x: 20,
       y: 30,
     };
-    this.platformWidth = 20;
-    this.platformHeight = 5;
+    this.platformWidth = 10;
+    this.platformHeight = 1;
     this.platformElem = null;
+    this.createPlatformElem();
   }
   createPlatformElem() {
     this.platformElem = document.createElement("div");
     this.platformElem.setAttribute("class", "platform");
-    const board = document.querySelector("#board");
     board.appendChild(this.platformElem);
     this.platformElem.style.width = this.platformWidth + "vw";
     this.platformElem.style.height = this.platformHeight + "vh";
@@ -36,16 +36,17 @@ setInterval(() => {
   } else {
     NEW_PLAYER.velocity.y = 1;
   }
-  if (NEW_PLAYER.position.y <= 2) {
+  NEW_PLAYER.fall();
+  if (NEW_PLAYER.position.y <= 1) {
     NEW_PLAYER.position.y = 1;
   }
-  NEW_PLAYER.fall();
+  if (NEW_PLAYER.position.x <= 5) {
+    NEW_PLAYER.position.x = 5;
+  }
+  if (NEW_PLAYER.position.x + NEW_PLAYER.playerWidth >= 55) {
+    NEW_PLAYER.position.x = 55 - NEW_PLAYER.playerWidth;
+  }
 }, 30);
-
-addEventListener("load", () => {
-  NEW_PLAYER.createPlayerElem();
-  NEW_PLATFORM.createPlatformElem();
-});
 
 addEventListener("keydown", (e) => {
   if (e.key === "a") {
