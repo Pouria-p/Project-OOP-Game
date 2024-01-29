@@ -41,8 +41,8 @@ class Platform {
   }
 }
 
-const PLATFORMS = [];
 //generate new platform
+const PLATFORMS = [];
 setInterval(() => {
   const platform = new Platform();
   PLATFORMS.push(platform);
@@ -71,6 +71,36 @@ setInterval(() => {
   }
 }, 30);
 
+// //time logic
+
+addEventListener("load", () => {
+  const displayContainer = document.querySelector(".timeContainer");
+  const timeDisplay = displayContainer.querySelector(".timeDisplay");
+  let startTime = 0;
+  let elapsedTime = 0;
+  let currentTime = 0;
+  let paused = true;
+  let intervalId;
+  let hrs = 0;
+  let min = 0;
+  let sec = 0;
+  if (paused) {
+    paused = false;
+    startTime = Date.now() - elapsedTime;
+    intervalId = setInterval(() => {
+      elapsedTime = Date.now() - startTime;
+      sec = Math.floor((elapsedTime / 1000) % 60);
+      min = Math.floor((elapsedTime / 1000 / 60) % 60);
+      hrs = Math.floor((elapsedTime / 1000 / 60 / 60) % 60);
+
+      timeDisplay.textContent = `${hrs < 10 ? "0" : ""}${hrs}:${
+        min < 10 ? "0" : ""
+      }${min}:${sec < 10 ? "0" : ""}${sec}`;
+    }, 1000);
+  }
+});
+
+//keyevent logic
 addEventListener("keydown", (e) => {
   if (e.key === "a") {
     NEW_PLAYER.moveLeft();
