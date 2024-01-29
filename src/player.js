@@ -3,7 +3,7 @@ class Player {
   constructor() {
     this.position = {
       x: 30,
-      y: 1,
+      y: 70,
     };
     this.velocity = {
       x: 0,
@@ -25,11 +25,11 @@ class Player {
     this.playerElem.style.left = this.position.x + "vw";
   }
   moveLeft() {
-    this.position.x -= 5;
+    this.position.x -= 2;
     this.playerElem.style.left = this.position.x + "vw";
   }
   moveRight() {
-    this.position.x += 5;
+    this.position.x += 2;
     this.playerElem.style.left = this.position.x + "vw";
   }
   jump() {

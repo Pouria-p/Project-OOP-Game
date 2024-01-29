@@ -2,7 +2,7 @@ const NEW_PLAYER = new Player();
 class Platform {
   constructor() {
     this.position = {
-      x: 20,
+      x: Math.floor(Math.random() * 50),
       y: 70,
     };
     this.platformWidth = 10;
@@ -25,33 +25,46 @@ class Platform {
   }
   collision() {
     if (
-      NEW_PLAYER.position.x + NEW_PLAYER.playerWidth >= this.position.x &&
-      NEW_PLAYER.position.x <= this.position.x + this.platformWidth &&
-      NEW_PLAYER.position.y <= this.position.y + this.platformHeight &&
-      NEW_PLAYER.position.y + NEW_PLAYER.playerHeight >= this.position.y
+      NEW_PLAYER.position.x + NEW_PLAYER.playerWidth > this.position.x &&
+      NEW_PLAYER.position.x < this.position.x + this.platformWidth &&
+      NEW_PLAYER.position.y < this.position.y + this.platformHeight &&
+      NEW_PLAYER.position.y + NEW_PLAYER.playerHeight > this.position.y
     ) {
+      console.log("collision");
       NEW_PLAYER.playerElem.style.transitionTimingFunction = "ease-out";
       NEW_PLAYER.velocity.y = 0;
       NEW_PLAYER.position.y = this.position.y + this.platformHeight;
     } else {
       NEW_PLAYER.playerElem.style.transitionTimingFunction = "ease";
       NEW_PLAYER.velocity.y = 1;
-      NEW_PLAYER.fall();
     }
   }
 }
 
-const NEW_PLATFORM = new Platform();
+const PLATFORMS = [];
+//generate new platform
+setInterval(() => {
+  const platform = new Platform();
+  PLATFORMS.push(platform);
+}, 2 * 1000);
 
 setInterval(() => {
-  NEW_PLATFORM.scrollDownPlatform();
-  NEW_PLATFORM.collision();
+  setTimeout(() => {
+    NEW_PLAYER.fall();
+  }, 2 * 1000);
+  PLATFORMS.forEach((elem) => {
+    elem.scrollDownPlatform();
+    elem.collision();
+  });
+  //keep player bttm bound
   if (NEW_PLAYER.position.y <= 1) {
     NEW_PLAYER.position.y = 1;
   }
+  //keep player left in bounds
   if (NEW_PLAYER.position.x <= 5) {
     NEW_PLAYER.position.x = 5;
   }
+  //keep player right in bounds
   if (NEW_PLAYER.position.x + NEW_PLAYER.playerWidth >= 55) {
     NEW_PLAYER.position.x = 55 - NEW_PLAYER.playerWidth;
   }
