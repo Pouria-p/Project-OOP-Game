@@ -3,7 +3,7 @@ class Player {
   constructor() {
     this.position = {
       x: 30,
-      y: 70,
+      y: 85,
     };
     this.velocity = {
       x: 0,
@@ -36,7 +36,7 @@ class Player {
   jump() {
     if (!this.isJumping) {
       this.isJumping = true;
-      this.position.y += 20;
+      this.position.y += 23;
       this.playerElem.style.bottom = this.position.y + "vh";
       //set timeOut so jump methods applies once every 650ms
       setTimeout(() => {

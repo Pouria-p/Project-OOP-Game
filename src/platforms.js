@@ -3,7 +3,7 @@ class Platform {
   constructor() {
     this.position = {
       x: Math.floor(Math.random() * 50),
-      y: 70,
+      y: 90,
     };
     this.platformWidth = 10;
     this.platformHeight = 1;
@@ -56,9 +56,10 @@ setInterval(() => {
     elem.scrollDownPlatform();
     elem.collision();
   });
-  //keep player bttm bound
-  if (NEW_PLAYER.position.y <= 1) {
+  //keep player bttm bound/gameOver codition
+  if (NEW_PLAYER.position.y <= 20) {
     NEW_PLAYER.position.y = 1;
+    location.href = "gameOver.html";
   }
   //keep player left in bounds
   if (NEW_PLAYER.position.x <= 5) {
