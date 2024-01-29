@@ -77,5 +77,6 @@ addEventListener("keydown", (e) => {
     NEW_PLAYER.moveRight();
   } else if (e.key === " ") {
     NEW_PLAYER.jump();
+    console.log(NEW_PLAYER.jump);
   }
 });

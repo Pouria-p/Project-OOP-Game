@@ -12,6 +12,7 @@ class Player {
     this.playerWidth = 1;
     this.playerHeight = 4;
     this.playerElem = null;
+    this.isJumping = false;
     this.createPlayerElem();
   }
   createPlayerElem() {
@@ -33,8 +34,15 @@ class Player {
     this.playerElem.style.left = this.position.x + "vw";
   }
   jump() {
-    this.position.y += 20;
-    this.playerElem.style.bottom = this.position.y + "vh";
+    if (!this.isJumping) {
+      this.isJumping = true;
+      this.position.y += 20;
+      this.playerElem.style.bottom = this.position.y + "vh";
+      //set timeOut so jump methods applies once every 650ms
+      setTimeout(() => {
+        this.isJumping = false;
+      }, 650);
+    }
   }
   fall() {
     this.position.y -= this.velocity.y;
