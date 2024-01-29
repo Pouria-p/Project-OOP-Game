@@ -34,6 +34,7 @@ class Platform {
       NEW_PLAYER.velocity.y = 0;
       NEW_PLAYER.position.y = this.position.y + this.platformHeight;
     } else {
+      NEW_PLAYER.playerElem.style.transitionTimingFunction = "ease";
       NEW_PLAYER.velocity.y = 1;
       NEW_PLAYER.fall();
     }
