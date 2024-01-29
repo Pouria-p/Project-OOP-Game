@@ -1,8 +1,9 @@
+const NEW_PLAYER = new Player();
 class Platform {
   constructor() {
     this.position = {
       x: 20,
-      y: 30,
+      y: 70,
     };
     this.platformWidth = 10;
     this.platformHeight = 1;
@@ -18,25 +19,32 @@ class Platform {
     this.platformElem.style.bottom = this.position.y + "vh";
     this.platformElem.style.left = this.position.x + "vw";
   }
+  scrollDownPlatform() {
+    this.position.y -= 0.2;
+    this.platformElem.style.bottom = this.position.y + "vh";
+  }
+  collision() {
+    if (
+      NEW_PLAYER.position.x + NEW_PLAYER.playerWidth >= this.position.x &&
+      NEW_PLAYER.position.x <= this.position.x + this.platformWidth &&
+      NEW_PLAYER.position.y <= this.position.y + this.platformHeight &&
+      NEW_PLAYER.position.y + NEW_PLAYER.playerHeight >= this.position.y
+    ) {
+      NEW_PLAYER.playerElem.style.transitionTimingFunction = "ease-out";
+      NEW_PLAYER.velocity.y = 0;
+      NEW_PLAYER.position.y = this.position.y + this.platformHeight;
+    } else {
+      NEW_PLAYER.velocity.y = 1;
+      NEW_PLAYER.fall();
+    }
+  }
 }
 
 const NEW_PLATFORM = new Platform();
-const NEW_PLAYER = new Player();
 
 setInterval(() => {
-  if (
-    NEW_PLAYER.position.x + NEW_PLAYER.playerWidth >= NEW_PLATFORM.position.x &&
-    NEW_PLAYER.position.x <=
-      NEW_PLATFORM.position.x + NEW_PLATFORM.platformWidth &&
-    NEW_PLAYER.position.y ===
-      NEW_PLATFORM.position.y + NEW_PLATFORM.platformHeight
-  ) {
-    console.log(NEW_PLAYER.position.y);
-    NEW_PLAYER.velocity.y = 0;
-  } else {
-    NEW_PLAYER.velocity.y = 1;
-  }
-  NEW_PLAYER.fall();
+  NEW_PLATFORM.scrollDownPlatform();
+  NEW_PLATFORM.collision();
   if (NEW_PLAYER.position.y <= 1) {
     NEW_PLAYER.position.y = 1;
   }
