@@ -5,7 +5,7 @@ class Platform {
       y: 90,
     };
     this.platformWidth = 10;
-    this.platformHeight = 1;
+    this.platformHeight = 2;
     this.platformElem = null;
     this.board = board;
     this.count = count;

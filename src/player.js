@@ -8,8 +8,8 @@ class Player {
       x: 0,
       y: 1,
     };
-    this.playerWidth = 1;
-    this.playerHeight = 4;
+    this.playerWidth = 3;
+    this.playerHeight = 5;
     this.playerElem = null;
     this.isJumping = false;
     this.board = board;
