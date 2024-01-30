@@ -8,6 +8,7 @@ class Platform {
     this.platformHeight = 1;
     this.platformElem = null;
     this.board = board;
+    this.count = 0.2;
     this.createPlatformElem();
   }
 
@@ -22,7 +23,7 @@ class Platform {
   }
 
   scrollDownPlatform() {
-    this.position.y -= 0.2;
+    this.position.y -= this.count;
     this.platformElem.style.bottom = this.position.y + "vh";
   }
 
