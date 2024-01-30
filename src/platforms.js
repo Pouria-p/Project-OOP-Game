@@ -1,5 +1,5 @@
 class Platform {
-  constructor(board) {
+  constructor(board, count) {
     this.position = {
       x: Math.floor(Math.random() * 50),
       y: 90,
@@ -8,7 +8,7 @@ class Platform {
     this.platformHeight = 1;
     this.platformElem = null;
     this.board = board;
-    this.count = 0.2;
+    this.count = count;
     this.createPlatformElem();
   }
 
@@ -25,6 +25,9 @@ class Platform {
   scrollDownPlatform() {
     this.position.y -= this.count;
     this.platformElem.style.bottom = this.position.y + "vh";
+    if (this.position.y <= 30) {
+      this.platformElem.remove();
+    }
   }
 
   collision(player) {

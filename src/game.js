@@ -6,6 +6,10 @@ class Game {
     this.board = document.querySelector("#board");
     this.player = this.createPlayer();
     this.platforms = [];
+    this.speed = 0.2;
+    this.timer = 0;
+    this.intervalId = null;
+    this.elapsedTime = 0;
     this.setupPlatforms();
     this.setupEventListeners();
     this.setupTimeDisplay();
@@ -18,12 +22,17 @@ class Game {
   }
 
   createPlatform() {
-    const platform = new Platform(this.board);
+    const platform = new Platform(this.board, this.speed);
+
     return platform;
   }
 
   setupPlatforms() {
     setInterval(() => {
+      this.timer++;
+      if (this.timer % 5 === 0) {
+        this.speed += 0.1;
+      }
       const platform = this.createPlatform();
       this.platforms.push(platform);
     }, 2 * 1000);
@@ -45,21 +54,19 @@ class Game {
     const displayContainer = document.querySelector(".timeContainer");
     const timeDisplay = displayContainer.querySelector(".timeDisplay");
     let startTime = 0;
-    let elapsedTime = 0;
     let paused = true;
-    let intervalId;
     let hrs = 0;
     let min = 0;
     let sec = 0;
 
     if (paused) {
       paused = false;
-      startTime = Date.now() - elapsedTime;
-      intervalId = setInterval(() => {
-        elapsedTime = Date.now() - startTime;
-        sec = Math.floor((elapsedTime / 1000) % 60);
-        min = Math.floor((elapsedTime / 1000 / 60) % 60);
-        hrs = Math.floor((elapsedTime / 1000 / 60 / 60) % 60);
+      startTime = Date.now() - this.elapsedTime;
+      this.intervalId = setInterval(() => {
+        this.elapsedTime = Date.now() - startTime;
+        sec = Math.floor((this.elapsedTime / 1000) % 60);
+        min = Math.floor((this.elapsedTime / 1000 / 60) % 60);
+        hrs = Math.floor((this.elapsedTime / 1000 / 60 / 60) % 60);
 
         timeDisplay.textContent = `${hrs < 10 ? "0" : ""}${hrs}:${
           min < 10 ? "0" : ""
@@ -81,6 +88,8 @@ class Game {
 
       if (this.player.position.y <= 20) {
         this.player.position.y = 1;
+        clearInterval(this.intervalId);
+        localStorage.setItem("myRecord", JSON.stringify(this.elapsedTime));
         location.href = "gameOver.html";
       }
 
