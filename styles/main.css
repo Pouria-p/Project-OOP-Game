@@ -1,6 +1,7 @@
 body {
   padding: 0;
   margin: 0;
+  text-align: center;
 }
 
 #board {
@@ -27,4 +28,69 @@ body {
   background-image: url("../images/platform-removebg-preview.png");
   background-size: cover;
   position: absolute;
+}
+.splashImgContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+.splashImg {
+  width: 60vw;
+  height: 40vh;
+  background-image: url("../images/splashWelcome-removebg-preview.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 10px;
+  border: 1px solid hsl(0, 0%, 80%);
+  box-shadow: 10px 10px 10px hsla(0, 0%, 0%, 0.815);
+}
+#strtBtn {
+  width: 20vw;
+  height: 5vh;
+  border-radius: 15px;
+  background-color: black;
+}
+#strtBtn a {
+  font-size: 20px;
+  text-decoration: none;
+  color: red;
+}
+.gameImgContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+.gameOverImg {
+  width: 60vw;
+  height: 40vh;
+  background-image: url("../images/pngtree-game-over-text-with-blood-effect-png-image_5974607-removebg-preview.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 10px;
+  border: 1px solid hsl(0, 0%, 80%);
+  box-shadow: 10px 10px 10px hsla(0, 0%, 0%, 0.815);
+}
+.restartBtn {
+  width: 20vw;
+  height: 5vh;
+  border-radius: 15px;
+  background-color: black;
+}
+.restartBtn a {
+  font-size: 20px;
+  text-decoration: none;
+  color: rgb(204, 20, 20);
+}
+
+.timeContainer2 {
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  margin-bottom: 20px;
 }
