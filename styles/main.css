@@ -9,7 +9,7 @@ body {
   align-items: center;
   justify-content: center;
   margin: auto;
-  height: 95vh;
+  height: 90vh;
   width: 60vw;
   background-image: url("../images/boardBg.jpg");
   background-size: cover;
@@ -85,7 +85,11 @@ body {
   text-decoration: none;
   color: rgb(204, 20, 20);
 }
-
+.timeContainer {
+  display: inline;
+  justify-content: start;
+  font-size: 30px;
+}
 .timeContainer2 {
   height: 10vh;
   display: flex;
