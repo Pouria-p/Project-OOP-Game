@@ -1,9 +1,47 @@
 body {
+  font-family: sans-serif, Arial;
   padding: 0;
   margin: 0;
   text-align: center;
+  justify-content: center;
+}
+#welcomeHeader {
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+}
+#gameName {
+  margin: 25px 0 0 0;
 }
 
+#DabuImg {
+  margin: 0;
+  padding-left: 15px;
+  background-image: url("../images/char-removebg-preview.png");
+  background-size: contain;
+  height: 15vh;
+  width: 15vw;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#gameOverHeader {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+#gameOverText {
+  margin: 25px 0 0 0;
+}
+
+#chadImg {
+  margin: 5px 0 0 0;
+  background-image: url("../images/squidy-removebg-preview.png");
+  background-size: contain;
+  height: 15vh;
+  width: 10vw;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 #board {
   display: flex;
   align-items: center;
@@ -30,10 +68,11 @@ body {
   position: absolute;
 }
 .splashImgContainer {
+  margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50vh;
+  height: 40vh;
 }
 .splashImg {
   width: 60vw;
@@ -43,52 +82,63 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   border-radius: 10px;
-  border: 1px solid hsl(0, 0%, 80%);
+  box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.3);
+}
+
+.gameImgContainer {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+}
+.gameOverImg {
+  width: 60vw;
+  height: 40vh;
+  background-color: rgba(23, 23, 23, 0.816);
+  background-image: url("../images/pngtree-game-over-text-with-blood-effect-png-image_5974607-removebg-preview.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 10px;
   box-shadow: 10px 10px 10px hsla(0, 0%, 0%, 0.815);
 }
 #strtBtn {
+  margin-top: 15px;
   width: 20vw;
   height: 5vh;
   border-radius: 15px;
   background-color: black;
+  border: 1px solid hsl(0, 0%, 80%);
+  box-shadow: 3px 3px 3px hsla(0, 0%, 0%, 0.5);
 }
 #strtBtn a {
   font-size: 20px;
   text-decoration: none;
   color: red;
 }
-.gameImgContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50vh;
-}
-.gameOverImg {
-  width: 60vw;
-  height: 40vh;
-  background-image: url("../images/pngtree-game-over-text-with-blood-effect-png-image_5974607-removebg-preview.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  border-radius: 10px;
-  border: 1px solid hsl(0, 0%, 80%);
-  box-shadow: 10px 10px 10px hsla(0, 0%, 0%, 0.815);
-}
 .restartBtn {
+  margin: 0;
   width: 20vw;
   height: 5vh;
   border-radius: 15px;
-  background-color: black;
+  background-color: rgba(23, 23, 23, 0.816);
+  border: 1px solid hsl(0, 0%, 80%);
+  box-shadow: 3px 3px 3px hsla(0, 0%, 0%, 0.5);
 }
 .restartBtn a {
   font-size: 20px;
   text-decoration: none;
-  color: rgb(204, 20, 20);
+  color: rgb(174, 13, 13);
 }
 .timeContainer {
   display: inline;
   justify-content: start;
   font-size: 30px;
+}
+.timeDisplay {
+  font-style: italic;
+  font-weight: 800;
 }
 .timeContainer2 {
   height: 10vh;
@@ -97,4 +147,68 @@ body {
   align-items: center;
   font-size: 50px;
   margin-bottom: 20px;
+}
+.timeDisplay2 {
+  font-style: italic;
+  color: black;
+  font-weight: 800;
+}
+
+#gameBody {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to right, #6495ed, #365fb2, #3d65ae, #6495ed);
+  background-size: 1400% 100%;
+  animation: gradientAnimation 5s ease-in-out infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+#startPage {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+    to right,
+    red,
+    orange,
+    yellow,
+    green,
+    blue,
+    indigo,
+    violet
+  );
+  background-size: 1400% 100%;
+  animation: gradientAnimation 15s ease-in-out infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+#gameOverBody {
+  width: 100%;
+
+  background: linear-gradient(to right, #0b204b, #0b204b, #193468, #254073);
+  background-size: 1400% 100%;
+  animation: gradientAnimation 15s ease-in-out infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }

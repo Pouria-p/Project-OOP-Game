@@ -70,7 +70,7 @@ class Game {
 
         timeDisplay.textContent = `${hrs < 10 ? "0" : ""}${hrs}:${
           min < 10 ? "0" : ""
-        }${min}:${sec < 10 ? "0" : ""}${sec}`;
+        }${min}:${sec < 10 ? "0" : ""}${sec} ⏳`;
       }, 1000);
     }
   }

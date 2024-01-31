@@ -1,7 +1,7 @@
 class Player {
   constructor(board) {
     this.position = {
-      x: 30,
+      x: Math.floor(Math.random() * 40),
       y: 85,
     };
     this.velocity = {
