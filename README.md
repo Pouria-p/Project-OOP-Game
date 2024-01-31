@@ -31,3 +31,7 @@ important to note is that you cannot repeatedly press the 'spacebar' key ;)
 ## Music Choices
 
 ALESTORM - Magnetic North | NEFFEX - Tough | Misfits - Dig Up Her Bones(Cover)
+
+<br>
+
+## This game is made for personal enjoyment and is not COMMERCIALIZED!
