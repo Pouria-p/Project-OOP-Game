@@ -1,5 +1,5 @@
 let myRecord = localStorage.getItem("myRecord");
-console.log(myRecord);
+
 let setupTimeDisplayGOver = (myRecord) => {
   const displayContainer = document.querySelector(".timeContainer2");
   const timeDisplay = displayContainer.querySelector(".timeDisplay2");

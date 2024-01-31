@@ -37,7 +37,6 @@ class Platform {
       player.position.y < this.position.y + this.platformHeight &&
       player.position.y + player.playerHeight > this.position.y
     ) {
-      console.log("collision");
       player.playerElem.style.transitionTimingFunction = "ease-out";
       player.velocity.y = 0;
       player.position.y = this.position.y + this.platformHeight;

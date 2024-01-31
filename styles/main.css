@@ -59,7 +59,8 @@ body {
 }
 #player {
   background-image: url("../images/char-removebg-preview.png");
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   position: absolute;
 }
 .platform {
@@ -85,6 +86,14 @@ body {
   box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.3);
 }
 
+.musicContainer #startGameAudio {
+  margin-top: 20px;
+  width: 25vw;
+  height: 3vh;
+}
+#startGameAudio::-webkit-media-controls-panel {
+  background-color: rgba(0, 0, 0, 0.655);
+}
 .gameImgContainer {
   margin: 0;
   display: flex;

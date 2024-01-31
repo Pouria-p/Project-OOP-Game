@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Little Dabu</title>
+    <link rel="icon" href="data:," />
     <link rel="stylesheet" href="./styles/main.css" />
   </head>
   <body id="startPage">
@@ -17,5 +18,16 @@
     <button id="strtBtn" class="timerBtn">
       <a href="inGame.html">start game</a>
     </button>
+    <div class="musicContainer">
+      <audio
+        id="startGameAudio"
+        src="./music/startSong.mp3"
+        autoplay
+        controls
+        controlsList="nodownload"
+        controlsList="noplaybackspeed"
+        loop
+      ></audio>
+    </div>
   </body>
 </html>
