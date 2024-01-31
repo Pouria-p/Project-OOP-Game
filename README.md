@@ -27,3 +27,7 @@ Using the 'A' and 'D' keyboard key you can move the player to left and right and
 important to note is that you cannot repeatedly press the 'spacebar' key ;)
 
 <br>
+
+## Music Choices
+
+ALESTORM - Magnetic North | NEFFEX - Tough | Misfits - Dig Up Her Bones(Cover)
