@@ -57,6 +57,7 @@ body {
   border-radius: 10px;
   box-shadow: 10px 10px 10px hsla(0, 0%, 0%, 0.815);
 }
+
 #player {
   background-image: url("../images/char-removebg-preview.png");
   background-size: contain;
@@ -221,5 +222,30 @@ body {
   }
   100% {
     background-position: 100% 50%;
+  }
+}
+#movements {
+  display: flex;
+  justify-content: space-evenly;
+}
+.moveData {
+  font-size: 1.5vw;
+  font-weight: 700;
+}
+
+.moveData,
+.moveDataSpan {
+  color: rgba(82, 10, 89, 0.741);
+  animation: colorTransition 5s infinite;
+}
+@keyframes colorTransition {
+  0% {
+    color: #092255;
+  }
+  50% {
+    color: #15b66d;
+  }
+  100% {
+    color: #153f93;
   }
 }
